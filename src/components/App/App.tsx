@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { fetchMovies } from '../../services/movieService';
 import type { Movie } from '../../types/movie';
-// import styles from './App.module.css';
+import styles from './App.module.css';
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -42,7 +42,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className={styles.app}>
       <SearchBar onSubmit={handleSearch} />
       <main>
         {loading && <Loader />}
@@ -55,6 +55,6 @@ export default function App() {
         )}
       </main>
       <Toaster position="top-right" />
-    </>
+    </div>
   );
 }
